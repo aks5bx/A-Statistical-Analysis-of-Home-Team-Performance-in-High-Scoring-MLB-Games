@@ -1,6 +1,7 @@
 # An Analysis of Home Team Performance in High-Scoring MLB Games
 
 ## Project Overview
+
 ### Introduction 
 In Major League Baseball, America’s premier baseball league, the home team is
 considered to have an advantage by virtue of having the support of the crowd. This is backed up
@@ -15,6 +16,20 @@ scoring games may involve many swings in leads and bursts of offense, which the 
 can help sway in the favor of their home team. Additionally, as more runs are scored, the home
 crowd perhaps becomes more rambunctious, energizing the home team. To test this beyond just
 theory, we move on to the methodology of this analysis. 
+
+
+### Data Sourcing 
+
+The Data was sourced from the MLB via Kaggle. A brief excerpt is displayed below along with explanations for column names. 
+
+![alt text](https://github.com/aks5bx/A-Statistical-Analysis-of-Home-Team-Performance-in-High-Scoring-MLB-Games/blob/master/Figure3.png)
+
+Column Names: 
+- ID – the unique identification number of each observation
+- Attendance – attendance at the game (unused)
+- Runs – total runs scored in the game
+- Hours – duration of the game (unused)
+- Win – whether or not the home team won (1 if yes, 0 if no) 
 
 ### Methodology/Roadmap
 
@@ -53,7 +68,7 @@ graph, the 75th percentile seems like a reasonable threshold (denoted by the upp
 the box) as it is clearly above the mean but not too close to the unusually high values signified by
 the circles towards the top of the graph.
 
-<IMAGE GOES HERE> 
+![alt text](https://github.com/aks5bx/A-Statistical-Analysis-of-Home-Team-Performance-in-High-Scoring-MLB-Games/blob/master/Figure1.png)
 
 The 75th percentile of the runs scored in all games was calculated to be 12 runs. Thus, 12
 runs is our threshold for a high scoring game (anything lower than 12 runs is a normal scoring
@@ -102,13 +117,13 @@ In order to employ bootstrapping we first take our two populations, normal scori
 and high scoring games, and define the general trend they exhibit. Figure Two and Figure Three
 below show the patterns that the two populations follow. 
   
-< IMAGE GOES HERE > 
+![alt text](https://github.com/aks5bx/A-Statistical-Analysis-of-Home-Team-Performance-in-High-Scoring-MLB-Games/blob/master/Figure2.png)
   
 After obtaining these approximations, we implement bootstrapping by producing
 hypothetical game results for high scoring and normal scoring games that follow the distributions
 above. For both types of games, we produce 10,000 hypothetical game results. After
 bootstrapping, as expected, both win percentages are the same, but with more observations we
-now attempt to make another test of two proportions
+now attempt to make another test of two proportions.
   
 The test of two proportions, again, is the two-sample z-test for proportions and is carried
 out the same way as before. After running this test, we compute a p-value of 0.01. In theory, this
@@ -130,8 +145,7 @@ unable to conclude something is still quite telling. If there was a clear trend 
 team win proportions were greater in high scoring games, we would most likely have concluded
 so. Thus, based off this test, we can practically say that home teams do not fare better in high
 scoring games. 
-  
-  
+    
 The second test was another two-sample z-test for proportions, but this test used data that
 was produced through bootstrapping. While bootstrapping is a valid statistical method, in this
 scenario it can be misleading. Through bootstrapping we essentially turned one season’s worth of
